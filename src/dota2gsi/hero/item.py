@@ -42,4 +42,4 @@ class Item:
         return None
     
     def __repr__(self):
-        return self.__str__()
+        return f'{self.__str__()}'
