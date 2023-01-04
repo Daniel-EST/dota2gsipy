@@ -55,3 +55,11 @@ class Ability:
     @property
     def charge_cooldown(self) -> int:
         return self.__charge_cooldown
+        
+    def __str__(self):
+        if self.__name != None:
+            return f'Ability(name={self.__name})'
+        return None
+        
+    def __repr__(self):
+        return self.__str__()

@@ -75,10 +75,6 @@ class Map:
         return self.__paused
 
     @property
-    def matchid(self) -> int:
-        return self.__matchid
-
-    @property
     def custom_game_name(self) -> int:
         return self.__custom_game_name
 
@@ -89,3 +85,11 @@ class Map:
     @property
     def ward_purchase_cooldown(self) -> int:
         return self.__ward_purchase_cooldown
+        
+    def __str__(self):
+        if self.__name != None:
+            return f'Map(name={self.__name}, match_id={self.__match_id})'
+        return None
+    
+    def __repr__(self):
+        return self.__str__()

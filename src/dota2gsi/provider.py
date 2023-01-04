@@ -25,3 +25,11 @@ class Provider:
     @property
     def timestamp(self) -> int:
         return self.__timestamp
+      
+    def __str__(self):
+        if self.__appid != None:
+            return f'Player(appid={self.__appid}, name={self.name})'
+        return None
+    
+    def __repr__(self):
+        return self.__str__()

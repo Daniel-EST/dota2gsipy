@@ -5,7 +5,7 @@ from collections import defaultdict
 class Item: 
     def __init__(self, payload: DefaultDict[str, Union[str, int]]):
         item = defaultdict(lambda: None, payload)
-        self.__name = item['name']
+        self.__name = item['name'] if item['name'] != 'empty' else None
         self.__purchaser = item['purchaser']
         self.__can_cast = item['can_cast']
         self.__cooldown = item['cooldown']
@@ -35,3 +35,11 @@ class Item:
     @property
     def charges(self):
         return self.__charges
+        
+    def __str__(self):
+        if self.__name != None:
+            return f'Item(name={self.__name})'
+        return None
+    
+    def __repr__(self):
+        return self.__str__()
