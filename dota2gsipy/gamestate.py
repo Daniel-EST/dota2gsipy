@@ -1,7 +1,7 @@
-from map import Map
-from hero.hero import Hero
-from player import Player
-from provider import Provider
+from .map import Map
+from .hero.hero import Hero
+from .player import Player
+from .provider import Provider
 
 
 class GameState:

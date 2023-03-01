@@ -8,8 +8,6 @@ from .item import Item
 class Hero: 
     def __init__(self, payload: DefaultDict[str, Union[str, int, float]]):
         hero = defaultdict(lambda: None, payload['hero'])
-        items = defaultdict(lambda: None, payload['items'])
-        abilities = defaultdict(lambda: None, payload['abilities'])
         self.__pos = (hero['xpos'], hero['ypos'])
         self.__id = hero['id']
         self.__name = hero['name']
@@ -46,11 +44,11 @@ class Hero:
             hero['talent_7'],
             hero['talent_8'],
         ]
-        self.__abilities = self.__parse_abilities(abilities)
-        self.__inventory = self.__parse_item('slot', items)
-        self.__stash = self.__parse_item('stash', items)
-        self.__teleport = self.__parse_item('teleport', items)
-        self.__neutral = self.__parse_item('neutral', items)
+        self.__abilities = self.__parse_abilities(hero['abilities'])
+        self.__inventory = self.__parse_item('slot', hero['items'])
+        self.__stash = self.__parse_item('stash', hero['items'])
+        self.__teleport = self.__parse_item('teleport', hero['items'])
+        self.__neutral = self.__parse_item('neutral', hero['items'])
 
     def __parse_abilities(self, payload: DefaultDict[str, Dict[str, Union[str, int, bool]]]):
         if payload == None:
@@ -198,17 +196,9 @@ class Hero:
         return self.__stash
 
     @property
-    def teleport(self) -> List[Item]:
+    def teleport(self) -> Item:
         return self.__teleport
 
     @property
-    def neutral(self) -> List[Item]:
+    def neutral(self) -> Item:
         return self.__neutral
-        
-    def __str__(self):
-        if self.__name != None:
-            return f'Hero(name={self.__name})'
-        return None
-        
-    def __repr__(self):
-        return f'{self.__str__()}'

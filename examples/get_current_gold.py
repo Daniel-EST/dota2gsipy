@@ -1,4 +1,4 @@
-from src.dota2gsi.server import GSIServer
+from dota2gsipy.server import GSIServer
 
 server = GSIServer(("127.0.0.1", 4000),'YOURTOKENHERE')
 server.start_server()

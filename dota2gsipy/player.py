@@ -114,13 +114,3 @@ class Player:
     @property
     def experience_per_minute(self) -> int:
         return self.__experience_per_minute
-        
-    def __str__(self):
-        if self.__steam_id != None:
-            return f'Player(steam_id={self.__steam_id}, name={self.__name})'
-        return None
-    
-    def __repr__(self):
-        
-        return f'{self.__str__()}'
-
