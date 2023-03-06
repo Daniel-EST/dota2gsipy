@@ -1,4 +1,7 @@
+import logging
 from dota2gsipy.server import GSIServer
+
+logging.basicConfig(level=logging.INFO)
 
 server = GSIServer(("127.0.0.1", 4000),'YOURTOKENHERE')
 server.start_server()
