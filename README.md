@@ -60,7 +60,7 @@ Full list of item names can be found [here](http://dota2.gamepedia.com/Cheats#It
 
 ##### Examples:
 ```python
-from dota2gsi.server import GSIServer
+from dota2gsipy.server import GSIServer
 
 server = GSIServer(("127.0.0.1", 4000),'YOURTOKENHERE')
 server.start_server()
