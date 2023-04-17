@@ -1,7 +1,7 @@
 # dota2gsipy
 A Python library to interface the Game State Integration in Dota 2.
 
-This library provides easy means of implementing Game State Integration from Dota 2 into Python applications. Library listens for HTTP POST requests made by the game on a specific address and port. Upon receiving a request, the game state is parsed and can be used.
+The dota2gsipy library facilitates the integration of Valve's Dota 2 game state into Python applications. It listens for HTTP POST requests from the game on a specific address and port, parses the game state, and makes it available for use in the application.
 
 After starting the `GSIServer` instance, it will continuously listen for incoming HTTP requests. Upon a received request, the contents will be parsed into a `GameState` object.
 
