@@ -18,7 +18,7 @@ pip install dota2gsipy==0.1.0
 ## Usage
 1. Create a custom `gamestate_integration_*.cfg` in `game/dota/cfg/gamestate_integration/`, for example:  
 
-`gamestate_integration_test.cfg`:
+`gamestate_integration_test.cfg`
 ```
 "Dota 2 Integration Configuration"
 {
@@ -29,7 +29,7 @@ pip install dota2gsipy==0.1.0
     "heartbeat"     "30.0"
     "auth"
     {
-        "token"      "MYTOKENHERE"
+        "token"      "TOKENHERE"
     }
     "data"
     {
@@ -48,11 +48,11 @@ pip install dota2gsipy==0.1.0
 ```python
 from dota2gsipy.server import GSIServer
 
-server = GSIServer(("127.0.0.1", 4000),'YOURTOKENHERE')
+server = GSIServer(("127.0.0.1", 4000),"TOKENHERE")
 server.start_server()
 
 while True:
-    print(f'Gold: {server.game_state.player.gold}')
+    print(f"Gold: {server.game_state.player.gold}")
 ```
 
 ### Item, and Hero names
@@ -62,10 +62,10 @@ Full list of item names can be found [here](http://dota2.gamepedia.com/Cheats#It
 ```python
 from dota2gsipy.server import GSIServer
 
-server = GSIServer(("127.0.0.1", 4000),'YOURTOKENHERE')
+server = GSIServer(("127.0.0.1", 4000),"TOKENHERE")
 server.start_server()
 
-print(f'Hero: {server.game_state.hero.name}')
+print(f"Hero: {server.game_state.hero.name}")
 ```
 
 ## Null value handling
