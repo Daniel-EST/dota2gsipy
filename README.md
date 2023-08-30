@@ -46,13 +46,13 @@ pip install dota2gsipy==0.1.0
 2. Create a `GSIServer` instance providing address, port and your token defined by the GSI configuration file.
 
 ```python
+import logging
 from dota2gsipy.server import GSIServer
+
+logging.basicConfig(level=logging.INFO)
 
 server = GSIServer(("127.0.0.1", 4000),"TOKENHERE")
 server.start_server()
-
-while True:
-    print(f"Gold: {server.game_state.player.gold}")
 ```
 
 ### Item, and Hero names
@@ -60,12 +60,20 @@ Full list of item names can be found [here](http://dota2.gamepedia.com/Cheats#It
 
 ##### Examples:
 ```python
+import logging
 from dota2gsipy.server import GSIServer
+
+logging.basicConfig(level=logging.INFO)
 
 server = GSIServer(("127.0.0.1", 4000),"TOKENHERE")
 server.start_server()
 
-print(f"Hero: {server.game_state.hero.name}")
+while True:
+    print(f'Gold: {server.game_state.player.gold}')
+    print(f'Name: {server.game_state.player.name}')
+    print(f'Hero name: {server.game_state.hero.name}')
+    print(f'Pos: {server.game_state.hero.pos}')
+    print(f'Talents: {server.game_state.hero.talents}')
 ```
 
 ## Null value handling
